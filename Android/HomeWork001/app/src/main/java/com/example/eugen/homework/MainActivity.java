@@ -24,10 +24,10 @@ public class MainActivity extends AppCompatActivity {
         updateCounterView();
     }
 
-
     private void increaseCounter(){
         _counter++;
     }
+    
     private void updateCounterView(){
         if (_counterTextView == null) {
             return;
