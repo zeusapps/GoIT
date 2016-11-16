@@ -18,6 +18,7 @@
 
     <Button
         android:text="Increase counter"
+        android:layout_marginTop="10dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/counterTextView"
@@ -25,4 +26,26 @@
         android:layout_alignParentStart="true"
         android:id="@+id/counterButton"
         android:onClick="onIncCounterClick" />
+
+    <TextView
+        android:text="Type some text bellow to increase counter;)"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/counterButton"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="10dp"
+        android:id="@+id/textView2" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:hint="Put your text hear"
+        android:ems="10"
+        android:layout_below="@+id/textView2"
+        android:layout_alignRight="@+id/counterTextView"
+        android:layout_alignEnd="@+id/counterTextView"
+        android:layout_marginTop="10dp"
+        android:id="@+id/counterEditText" />
 </RelativeLayout>
