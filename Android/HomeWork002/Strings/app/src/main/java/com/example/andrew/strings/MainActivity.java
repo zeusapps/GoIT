@@ -57,6 +57,8 @@ public class MainActivity extends AppCompatActivity {
             builder.append(type + ": " + item + "\n");
         }
 
+        builder.append("\nTotal arguments: " + arguments.length);
+
         _resultTextView.setText(builder.toString());
     }
 }
