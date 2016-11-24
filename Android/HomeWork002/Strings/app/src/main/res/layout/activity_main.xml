@@ -25,6 +25,17 @@
         android:layout_height="wrap_content"
         android:text="1. Check arguments"
         android:onClick="CheckResults"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="2. Count characters"
+        android:onClick="CountChars"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="3. Sort arguments"
+        android:onClick="SortArguments"/>
+
 
     <TextView
         android:layout_width="wrap_content"
