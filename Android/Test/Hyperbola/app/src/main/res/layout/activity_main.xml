@@ -9,48 +9,42 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:orientation="vertical"
-    android:gravity="fill"
-    android:background="@color/colorAccent"
-    tools:context="com.example.eugen.listview.MainActivity">
+    tools:context="com.example.eugen.hyperbola.MainActivity">
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Click me"/>
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Click me"/>
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Click me"/>
-
-<!--
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="ListView sample!" />
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Enter new value"/>
+        android:text="Enter X" />
+
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/textEditText"/>
+        android:id="@+id/editX"
+        android:inputType="numberSigned|numberDecimal" />
+
     <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Calculate Y"
+        android:onClick="calculateY"/>
+
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Add to list"
-        android:layout_gravity="center"
-        android:id="@+id/addButton"
-        android:onClick="addItem"/>
-
-    <ListView
+        android:text="Enter Y"/>
+    <EditText
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/itemsListView"></ListView>
--->
+        android:layout_height="wrap_content"
+        android:inputType="numberSigned|numberDecimal"
+        android:id="@+id/editY"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Calculate X"
+        android:onClick="calculateX"/>
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/result"/>
 </LinearLayout>
