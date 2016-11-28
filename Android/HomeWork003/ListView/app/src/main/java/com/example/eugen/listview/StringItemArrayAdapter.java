@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -16,13 +17,10 @@ import java.util.ArrayList;
 public class StringItemArrayAdapter extends ArrayAdapter<StringItem> {
 
     private final Context _context;
-    private final ArrayList<StringItem> _items;
 
-    public StringItemArrayAdapter(Context context, ArrayList<StringItem> items) {
-        super(context, R.layout.item_template, items);
-
+    public StringItemArrayAdapter(Context context) {
+        super(context, R.layout.item_template);
         _context = context;
-        _items = items;
     }
 
     @NonNull
@@ -32,9 +30,31 @@ public class StringItemArrayAdapter extends ArrayAdapter<StringItem> {
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
         View view = inflater.inflate(R.layout.item_template, parent, false);
+        TextView itemText = (TextView) view.findViewById(R.id.itemTemplateText);
+        TextView itemCount = (TextView) view.findViewById(R.id.itemTemplateCount);
 
+        StringItem item = getItem(position);
 
+        itemText.setText(item.getText());
+        itemCount.setText(String.valueOf(item.getCount()));
+        return view;
+    }
 
-        return super.getView(position, convertView, parent);
+    @Override
+    public void add(StringItem object) {
+        boolean addItem = true;
+        for (int i = 0; i < getCount(); i++) {
+            StringItem item = getItem(i);
+            if (item.getText().equals(object.getText())){
+                item.increaseCount();
+                notifyDataSetChanged();
+                addItem = false;
+                break;
+            }
+        }
+        if (addItem){
+            super.add(object);
+            notifyDataSetChanged();
+        }
     }
 }
