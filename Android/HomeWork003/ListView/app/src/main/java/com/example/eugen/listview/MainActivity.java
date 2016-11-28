@@ -30,8 +30,11 @@ public class MainActivity extends AppCompatActivity {
                 .toString()
                 .trim();
 
-        if (text.length() > 0) {
-            _adapter.add(new StringItem(text));
+        if (text.length() == 0) {
+            return;
         }
+
+        _adapter.add(new StringItem(text));
+        _textEditText.setText("");
     }
 }
