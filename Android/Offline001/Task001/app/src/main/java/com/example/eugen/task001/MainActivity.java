@@ -39,9 +39,9 @@ public class MainActivity extends AppCompatActivity {
 
             Log.i(TAG, String.valueOf(value * 1234));
 
-            View content = findViewById(android.R.id.content);
+            //View content = findViewById(android.R.id.content);
             Snackbar
-                    .make(content, String.valueOf(23), Snackbar.LENGTH_SHORT)
+                    .make(view, String.valueOf(23), Snackbar.LENGTH_SHORT)
                     .show();
         }
         catch (Throwable e){
