@@ -21,9 +21,9 @@ public class MainActivity extends AppCompatActivity {
     private final String _role2 = "user";
     private final String _toast = "Wrong login or password";
 
-    EditText _login;
-    EditText _password;
-    UserAdapter _userAdapter;
+    private EditText _login;
+    private EditText _password;
+    private UserAdapter _userAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
