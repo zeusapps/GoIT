@@ -1,4 +1,4 @@
-package com.example.andrew.matrixgravitylogin;
+package com.example.andrew.matrixgravitylogin.models;
 
 /**
  * Created by Andrew on 29.11.2016.

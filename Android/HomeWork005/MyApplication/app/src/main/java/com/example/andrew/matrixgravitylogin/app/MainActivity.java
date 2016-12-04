@@ -1,4 +1,4 @@
-package com.example.andrew.matrixgravitylogin;
+package com.example.andrew.matrixgravitylogin.app;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -6,6 +6,10 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
+
+import com.example.andrew.matrixgravitylogin.R;
+import com.example.andrew.matrixgravitylogin.models.User;
+import com.example.andrew.matrixgravitylogin.adapter.UserAdapter;
 
 public class MainActivity extends AppCompatActivity {
 

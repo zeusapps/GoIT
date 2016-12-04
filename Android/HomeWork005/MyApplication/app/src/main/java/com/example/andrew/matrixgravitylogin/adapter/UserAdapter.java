@@ -1,4 +1,4 @@
-package com.example.andrew.matrixgravitylogin;
+package com.example.andrew.matrixgravitylogin.adapter;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
@@ -7,6 +7,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
+
+import com.example.andrew.matrixgravitylogin.R;
+import com.example.andrew.matrixgravitylogin.models.User;
 
 /**
  * Created by Andrew on 29.11.2016.
