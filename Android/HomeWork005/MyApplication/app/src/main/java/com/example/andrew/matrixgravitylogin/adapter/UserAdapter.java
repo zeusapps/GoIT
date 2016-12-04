@@ -36,17 +36,12 @@ public class UserAdapter extends ArrayAdapter<User> {
             LayoutInflater inflater = (LayoutInflater) _context
                     .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             convertView = inflater.inflate(R.layout.user_item_template, parent, false);
-            TextView login = (TextView) convertView.findViewById(R.id.userLoginTextView);
-            TextView role = (TextView) convertView.findViewById(R.id.userRoleTextView);
-            holder = new ViewHolder(login, role);
+            holder = new ViewHolder(convertView);
             convertView.setTag(holder);
         }
 
         User user = getItem(position);
-
-        holder.login.setText(user.getLogin());
-        holder.role.setText(user.getRole());
-
+        holder.update(user);
         return convertView;
     }
 
@@ -55,9 +50,14 @@ public class UserAdapter extends ArrayAdapter<User> {
         private final TextView login;
         private final TextView role;
 
-        public ViewHolder(TextView login, TextView role){
-            this.login = login;
-            this.role = role;
+        private ViewHolder(View view){
+            login = (TextView) view.findViewById(R.id.userLoginTextView);
+            role = (TextView) view.findViewById(R.id.userRoleTextView);
+        }
+
+        private void update(User user){
+            login.setText(user.getLogin());
+            role.setText(user.getRole());
         }
     }
 }
