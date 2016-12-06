@@ -24,9 +24,7 @@ public class MainActivity extends AppCompatActivity {
         layout.setLayoutParams(params);
         setContentView(layout);
 
-
         final EditText editText = new EditText(this);
-
         layout.addView(editText);
         Button btn = new Button(this);
         btn.setText("Click me!");
