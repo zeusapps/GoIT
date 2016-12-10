@@ -7,38 +7,58 @@ import java.util.Date;
  */
 
 public class Article {
-    private String _id;
-    private String _title;
-    private String _html;
-    private Date _published;
-    private String _source;
+    private String id;
+    private String title;
+    private String html;
+    private Date published;
+    private String source;
 
     public Article(String id, String title, String html, Date published, String source) {
-        this._id = id;
-        this._title = title;
-        this._html = html;
-        this._published = published;
-        this._source = source;
+        this.id = id;
+        this.title = title;
+        this.html = html;
+        this.published = published;
+        this.source = source;
     }
 
     public String getId() {
-        return _id;
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getTitle() {
-        return _title;
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public String getHtml() {
-        return _html;
+        return html;
+    }
+
+    public void setHtml(String html) {
+        this.html = html;
     }
 
     public Date getPublished() {
-        return _published;
+        return published;
+    }
+
+    public void setPublished(Date published) {
+        this.published = published;
     }
 
     public String getSource() {
-        return _source;
+        return source;
+    }
+
+    public void setSource(String source) {
+        this.source = source;
     }
 
     @Override
@@ -48,12 +68,12 @@ public class Article {
 
         Article article = (Article) o;
 
-        return _id != null ? _id.equals(article._id) : article._id == null;
+        return id != null ? id.equals(article.id) : article.id == null;
 
     }
 
     @Override
     public int hashCode() {
-        return _id != null ? _id.hashCode() : 0;
+        return id != null ? id.hashCode() : 0;
     }
 }
