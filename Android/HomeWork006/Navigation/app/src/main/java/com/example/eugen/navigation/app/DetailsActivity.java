@@ -2,7 +2,6 @@ package com.example.eugen.navigation.app;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -26,9 +25,8 @@ public class DetailsActivity extends AppCompatActivity implements View.OnClickLi
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(this);
-
+        findViewById(R.id.fab)
+                .setOnClickListener(this);
 
         IArticleService articleService = new MockArticleService(this);
         Bundle bundle = getIntent().getExtras();

@@ -7,7 +7,6 @@ import com.google.gson.GsonBuilder;
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.text.DateFormat;
 
 /**
  * Created by Eugen on 10.12.2016.
@@ -28,7 +27,7 @@ public class MockArticleService implements IArticleService {
             }
         }
         catch (Throwable e){
-
+            //
         }
         String json = builder.toString();
 
