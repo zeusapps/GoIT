@@ -1,0 +1,7 @@
+#Tue Dec 13 21:26:11 EET 2016
+base.0=D\:\\Projects\\GoIT\\Android\\Offline003\\MyApplication\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run-bootstrap_2d3490d13495a66740f37a5ddaf71c0f46cf876b
+renamed.1=classes.dex
+renamed.0=classes2.dex
+file.1=D\:\\Projects\\GoIT\\Android\\Offline003\\MyApplication\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run_336c1d314f691aa4a741e7795c5656098a2b2dce\\classes.dex
+base.1=D\:\\Projects\\GoIT\\Android\\Offline003\\MyApplication\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run_336c1d314f691aa4a741e7795c5656098a2b2dce
+file.0=D\:\\Projects\\GoIT\\Android\\Offline003\\MyApplication\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run-bootstrap_2d3490d13495a66740f37a5ddaf71c0f46cf876b\\classes.dex
