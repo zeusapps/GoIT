@@ -6,13 +6,18 @@ package com.example.andrew.testsystem.Models;
 
 public class TestItem {
 
-    public static final String TEST_ID = "test_id";
+//    create table testItems (id integer primary key autoincrement, " +
+//            "testId integer, image text, question text, correctAnswer text, wrongAnswer1 text," +
+//            "wrongAnswer2 text, wrongAnswer3 text);
+
+
+    public static final String TEST_ID = "testId";
     public static final String IMAGE = "image";
     public static final String QUESTION = "question";
-    public static final String CORRECT_ANSWER = "correct_answer";
-    public static final String WRONG_ANSWER_1 = "wrong_answer_1";
-    public static final String WRONG_ANSWER_2 = "wrong_answer_2";
-    public static final String WRONG_ANSWER_3 = "wrong_answer_3";
+    public static final String CORRECT_ANSWER = "correctAnswer";
+    public static final String WRONG_ANSWER_1 = "wrongAnswer1";
+    public static final String WRONG_ANSWER_2 = "wrongAnswer2";
+    public static final String WRONG_ANSWER_3 = "wrongAnswer3";
 
     private long _testId;
     private String _image;

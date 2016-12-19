@@ -54,12 +54,16 @@ public class TestActivity extends AppCompatActivity {
         long id = getIntent().getLongExtra(Test.ID_FIELD, 0);
         TestsRepository repository = new TestsRepository(this);
         _testItems = repository.getTestItems(id);
+        _testIndex = 0;
+        _corectAnswers = 0;
 
         onNext();
     }
 
     @OnClick(R.id.test_nextButton)
     public void onNext(){
+        checkAnswer();
+
         if (_testIndex == _testItems.length){
             Toast
                     .makeText(this, "You answerer " + _corectAnswers + " of " + _testItems.length, Toast.LENGTH_SHORT)
@@ -79,6 +83,7 @@ public class TestActivity extends AppCompatActivity {
 
         String[] answers = shuffleAnswers(item);
         answer1.setText(answers[0]);
+        answer1.setChecked(true);
         answer2.setText(answers[1]);
         answer3.setText(answers[2]);
         answer4.setText(answers[3]);
@@ -108,5 +113,19 @@ public class TestActivity extends AppCompatActivity {
         }
 
         return ar;
+    }
+
+    private void checkAnswer(){
+        if (_testIndex == 0){
+            return;
+        }
+
+        String correct = _testItems[_testIndex - 1].getCorrectAnswer();
+
+        int id = radioGroup.getCheckedRadioButtonId();
+        RadioButton rb = (RadioButton) findViewById(id);
+        if (rb != null && rb.getText().equals(correct)){
+            _corectAnswers++;
+        }
     }
 }

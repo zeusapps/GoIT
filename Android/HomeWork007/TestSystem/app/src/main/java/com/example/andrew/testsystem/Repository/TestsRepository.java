@@ -46,7 +46,7 @@ public class TestsRepository {
             values.put(TestItem.WRONG_ANSWER_2, item.getWrongAnswer2());
             values.put(TestItem.WRONG_ANSWER_3, item.getWrongAnswer3());
 
-            db.insert(TEST_ITEMS_TABLE, null, values);
+            long testItemId = db.insert(TEST_ITEMS_TABLE, null, values);
         }
 
         db.close();
@@ -139,12 +139,17 @@ public class TestsRepository {
 
             db.execSQL(createTestsSql);
             db.execSQL(createTestItemsSql);
+
+            db.execSQL("insert into tests (id, name, image) values (1, 'Radio station test', 'http://ukraine-fm.com/wp-content/uploads/2011/06/RadioRoks.png')");
+            db.execSQL("insert into testItems (id, testId, image, question, correctAnswer, wrongAnswer1, wrongAnswer2, wrongAnswer3) values (1, 1, 'http://ukraine-fm.com/wp-content/uploads/2011/06/RadioRoks.png', 'What radio station is it?', 'Radio ROKS', 'Kiss FM', 'Hit FM', 'Radio RELAX');");
+            db.execSQL("insert into testItems (id, testId, image, question, correctAnswer, wrongAnswer1, wrongAnswer2, wrongAnswer3) values (2, 1, 'http://www.kissfm.ua/static/img/brandbook/kiss_logo_black.png', 'What radio station is it?', 'Kiss FM', 'Radio ROKS', 'Hit FM', 'Radio RELAX');");
+            db.execSQL("insert into testItems (id, testId, image, question, correctAnswer, wrongAnswer1, wrongAnswer2, wrongAnswer3) values (3, 1, 'https://upload.wikimedia.org/wikipedia/uk/5/52/Hit_fm_logo.png', 'What radio station is it?', 'Hit FM', 'Radio ROKS', 'Kiss FM', 'Radio RELAX');");
+            db.execSQL("insert into testItems (id, testId, image, question, correctAnswer, wrongAnswer1, wrongAnswer2, wrongAnswer3) values (4, 1, 'http://radiovolna.net/uploads/posts/2015-02/thumbs/1423673603_728x300.jpg-728300.png', 'What radio station is it?', 'Radio RELAX', 'Radio ROKS', 'Kiss FM', 'Hit FM');");
         }
 
         @Override
-        public void onUpgrade(SQLiteDatabase db, int olbVersion, int newVersion) {
+        public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 
         }
-
     }
 }
