@@ -1,7 +1,15 @@
 package com.example.andrew.images;
 
+import android.Manifest;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Environment;
+import android.support.annotation.NonNull;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -16,6 +24,9 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class MainActivity extends AppCompatActivity {
+
+    private final static int CHECK_PERMISSION_CODE = 77;
+
 
     @BindView(R.id.main_imagesGridView)
     GridView imagesGridView;
@@ -38,17 +49,41 @@ public class MainActivity extends AppCompatActivity {
 
         imagesGridView.setAdapter(adapter);
 
-        String path =
-                Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).getPath() +
+        setLocalImage();
+    }
+
+    private void setLocalImage(){
+
+        int permissionCheck = ContextCompat.checkSelfPermission(this,
+                Manifest.permission.READ_EXTERNAL_STORAGE);
+
+        if (permissionCheck != PackageManager.PERMISSION_GRANTED){
+            ActivityCompat.requestPermissions(this,
+                    new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},
+                    CHECK_PERMISSION_CODE);
+            return;
+        }
+
+        String path = Environment
+                .getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS)
+                .getPath() +
                 "/file_to_load.png";
 
-        Log.d("teeegsdfsfsdf", path);
-
         File file = new File(path);
-        Picasso
-                .with(this)
-                .load(file)
-                .error(R.drawable.error)
-                .into(imageFromFile);
+        if (file.exists()){
+            Picasso p = Picasso.with(this);
+            Uri uri = Uri.fromFile(file);
+            p.setLoggingEnabled(true);
+            p.load(uri)
+                    .error(R.drawable.error)
+                    .into(imageFromFile);
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        if (requestCode == CHECK_PERMISSION_CODE){
+            setLocalImage();
+        }
     }
 }
