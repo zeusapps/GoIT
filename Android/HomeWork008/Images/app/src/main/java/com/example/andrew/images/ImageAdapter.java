@@ -61,6 +61,7 @@ public class ImageAdapter extends ArrayAdapter<Integer> {
             Picasso
                     .with(_context)
                     .load(resource)
+                    .error(R.drawable.error)
                     .into(_image);
         }
     }

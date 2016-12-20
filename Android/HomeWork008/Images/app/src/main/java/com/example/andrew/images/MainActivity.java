@@ -1,9 +1,16 @@
 package com.example.andrew.images;
 
+import android.net.Uri;
+import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.GridView;
 import android.widget.ImageView;
+
+import com.squareup.picasso.Picasso;
+
+import java.io.File;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -30,5 +37,18 @@ public class MainActivity extends AppCompatActivity {
         adapter.add(R.drawable.image_4);
 
         imagesGridView.setAdapter(adapter);
+
+        String path =
+                Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).getPath() +
+                "/file_to_load.png";
+
+        Log.d("teeegsdfsfsdf", path);
+
+        File file = new File(path);
+        Picasso
+                .with(this)
+                .load(file)
+                .error(R.drawable.error)
+                .into(imageFromFile);
     }
 }
