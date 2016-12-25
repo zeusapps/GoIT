@@ -35,7 +35,7 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="numberSigned|numberDecimal"
+        android:inputType="numberDecimal"
         android:id="@+id/editY"/>
     <Button
         android:layout_width="match_parent"
