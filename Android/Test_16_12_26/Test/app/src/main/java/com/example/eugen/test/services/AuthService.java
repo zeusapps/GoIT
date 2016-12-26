@@ -26,4 +26,8 @@ public class AuthService {
         return _role;
     }
 
+    public void logout(){
+        _role = AuthRole.NOT_AUTHORIZED;
+    }
+
 }

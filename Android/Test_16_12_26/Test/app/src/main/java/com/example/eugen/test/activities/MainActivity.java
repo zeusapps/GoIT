@@ -56,6 +56,11 @@ public class MainActivity extends BaseAuthActivity implements AdapterView.OnItem
                 Intent intent = new Intent(this, CreateTestActivity.class);
                 startActivityForResult(intent, CREATE_NEW_TEST_REQUEST_CODE);
                 return true;
+            case R.id.main_admin_menu_logout:
+                _application.getAuthService().logout();
+                Intent intent1 = new Intent(this, LoginActivity.class);
+                startActivity(intent1);
+                return true;
         }
 
         return false;
