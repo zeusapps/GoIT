@@ -25,10 +25,10 @@ public class TestItemsAdapter extends ArrayAdapter<TestItem> {
     private int _resource;
 
     public TestItemsAdapter(Context context) {
-        super(context, R.layout.template_test);
+        super(context, R.layout.template_test_item);
 
         _context = context;
-        _resource = R.layout.template_test;
+        _resource = R.layout.template_test_item;
     }
 
     @NonNull

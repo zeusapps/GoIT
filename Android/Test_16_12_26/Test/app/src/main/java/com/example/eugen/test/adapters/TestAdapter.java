@@ -65,7 +65,8 @@ public class TestAdapter extends ArrayAdapter<Test> {
             }
 
             nameTextView.setText(item.getName());
-            questionsCountTextView.setText(R.string.test_adapter_questions_count + item.getTestItems().size());
+            String text = "Questions: " + item.getTestItems().size();
+            questionsCountTextView.setText(text);
         }
     }
 }

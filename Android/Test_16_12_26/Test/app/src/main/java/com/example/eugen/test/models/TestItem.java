@@ -1,6 +1,13 @@
 package com.example.eugen.test.models;
 
 public class TestItem {
+
+    public static final String QUESTIN_EXTRA = "question";
+    public static final String CORRECT_ANSWER_EXTRA = "correct_answer";
+    public static final String WRONG_ANSWER_1_EXTRA = "wrong_answer_1";
+    public static final String WRONG_ANSWER_2_EXTRA = "wrong_answer_2";
+    public static final String WRONG_ANSWER_3_EXTRA = "wrong_answer_3";
+
     private String _question;
     private String _correctAnswer;
     private String _wrongAnswer1;
