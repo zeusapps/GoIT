@@ -19,4 +19,13 @@ public class TestsRepository {
     public void addTest(Test test){
         _tests.add(test);
     }
+
+    public Test getTest(int id){
+        for (Test test: _tests){
+            if (test.getId() == id){
+                return test;
+            }
+        }
+        return null;
+    }
 }

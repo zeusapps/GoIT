@@ -4,16 +4,19 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.example.eugen.test.R;
 import com.example.eugen.test.activities.base.BaseAuthActivity;
 import com.example.eugen.test.adapters.TestAdapter;
 import com.example.eugen.test.enums.AuthRole;
+import com.example.eugen.test.models.Test;
 
 import butterknife.BindView;
 
-public class MainActivity extends BaseAuthActivity {
+public class MainActivity extends BaseAuthActivity implements AdapterView.OnItemClickListener {
 
     private static final int CREATE_NEW_TEST_REQUEST_CODE = 930;
 
@@ -29,6 +32,7 @@ public class MainActivity extends BaseAuthActivity {
         refresh();
         _testsListView
                 .setAdapter(_adapter);
+        _testsListView.setOnItemClickListener(this);
     }
 
     @Override
@@ -69,5 +73,13 @@ public class MainActivity extends BaseAuthActivity {
         _adapter.addAll(
                 _application.getTestsRepository().getTests()
         );
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> view, View view1, int pos, long l) {
+        Test test = _adapter.getItem(pos);
+        Intent intent = new Intent(this, TestActivity.class);
+        intent.putExtra(Test.ID_EXTRA, test.getId());
+        startActivity(intent);
     }
 }

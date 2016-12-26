@@ -13,4 +13,6 @@
     <string name="create_test_item_wrong_answer">Wrong answer</string>
     <string name="create_test_item_add_question">Add question</string>
     <string name="create_test_menu_add_question">Add question</string>
+    <string name="test_next">Next</string>
+    <string name="test_previous">Previous</string>
 </resources>
