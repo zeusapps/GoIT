@@ -16,10 +16,16 @@ import com.example.eugen.homework009.models.ActionModeCallbackModel;
 import com.example.eugen.homework009.models.ModelBase;
 import com.example.eugen.homework009.models.PopupModel;
 
+import java.util.Comparator;
+import java.util.Random;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class MainActivity extends AppCompatActivity implements AdapterView.OnItemClickListener, ActionMode.Callback, PopupMenu.OnMenuItemClickListener {
+
+    private static final int ITEMS_COUNT = 20;
+    private static final int RANDOM_BOUND = 1000;
 
     @BindView(R.id.main_modelItemListView)
     ListView _listView;
@@ -33,9 +39,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         ButterKnife.bind(this);
 
         _adapter = new ModelAdapter(this, R.layout.template_popup);
-
-        _adapter.add(new PopupModel("popup"));
-        _adapter.add(new ActionModeCallbackModel("action mode callback"));
+        randomize();
 
         _listView.setAdapter(_adapter);
 
@@ -52,18 +56,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         if (item instanceof ActionModeCallbackModel) {
             showActionMode();
         }
-    }
-
-    private void showActionMode() {
-        startActionMode(this);
-    }
-
-    private void showPopup(View view) {
-        PopupMenu menu = new PopupMenu(this, view);
-        menu.inflate(R.menu.popup_menu);
-        menu.show();
-
-        menu.setOnMenuItemClickListener(this);
     }
 
     @Override
@@ -94,7 +86,61 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         return true;
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.options_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.options_menu_sort:
+                sort();
+                showClicked("Items sorted");
+                return true;
+            case R.id.options_menu_randomize:
+                randomize();
+                showClicked("Items randomized");
+                return true;
+        }
+        return false;
+    }
+
     private void showClicked(String title) {
         Toast.makeText(this, title, Toast.LENGTH_SHORT).show();
+    }
+
+    private void showActionMode() {
+        startActionMode(this);
+    }
+
+    private void showPopup(View view) {
+        PopupMenu menu = new PopupMenu(this, view);
+        menu.inflate(R.menu.popup_menu);
+        menu.show();
+
+        menu.setOnMenuItemClickListener(this);
+    }
+
+    private void randomize(){
+        Random random = new Random();
+        _adapter.clear();
+        for (int i = 0; i < ITEMS_COUNT; i++){
+            ModelBase model = random.nextBoolean()
+                    ? new PopupModel(random.nextInt(RANDOM_BOUND))
+                    : new ActionModeCallbackModel(random.nextInt(RANDOM_BOUND));
+
+            _adapter.add(model);
+        }
+    }
+
+    private void sort(){
+        _adapter.sort(new Comparator<ModelBase>() {
+            @Override
+            public int compare(ModelBase left, ModelBase right) {
+                return left.getNumber() - right.getNumber();
+            }
+        });
     }
 }

@@ -1,13 +1,17 @@
 package com.example.eugen.homework009.models;
 
 public abstract class ModelBase {
-    private String _title;
+    private int _number;
 
-    public ModelBase(String title){
-        _title = title;
+    public ModelBase(int number){
+        _number = number;
     }
 
     public String getTitle() {
-        return _title;
+        return this.getClass().getSimpleName() + " " + _number;
+    }
+
+    public int getNumber(){
+        return _number;
     }
 }
