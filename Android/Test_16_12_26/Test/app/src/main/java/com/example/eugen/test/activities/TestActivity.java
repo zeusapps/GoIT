@@ -63,11 +63,9 @@ public class TestActivity extends BaseAuthActivity {
         }
 
         _position++;
-        if (_position >= _test.getTestItems().size() - 1){
+        if (_position < _test.getTestItems().size()){
             update();
-        }
-        else {
-
+        } else {
             int persents = _corectAnswers * 100 / _test.getTestItems().size();
             Toast.makeText(this, persents + "%", Toast.LENGTH_SHORT).show();
             finish();
