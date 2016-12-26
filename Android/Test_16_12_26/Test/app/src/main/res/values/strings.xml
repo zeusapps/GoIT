@@ -7,4 +7,10 @@
     <string name="main_admin_menu_createNew">Create new test</string>
     <string name="create_test_test_name">Test name</string>
     <string name="create_test_create_button">Create test</string>
+    <string name="title_activity_create_test_item">CreateTestItemActivity</string>
+    <string name="create_test_item_question">Question</string>
+    <string name="create_test_item_correct_answer">Correct answer</string>
+    <string name="create_test_item_wrong_answer">Wrong answer</string>
+    <string name="create_test_item_add_question">Add question</string>
+    <string name="create_test_menu_add_question">Add question</string>
 </resources>
