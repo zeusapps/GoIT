@@ -22,7 +22,10 @@ import java.util.Random;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class MainActivity extends AppCompatActivity implements AdapterView.OnItemClickListener, ActionMode.Callback, PopupMenu.OnMenuItemClickListener {
+public class MainActivity extends AppCompatActivity
+        implements AdapterView.OnItemClickListener,
+            ActionMode.Callback,
+            PopupMenu.OnMenuItemClickListener {
 
     private static final int ITEMS_COUNT = 20;
     private static final int RANDOM_BOUND = 1000;
@@ -94,7 +97,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()){
+        switch (item.getItemId()) {
             case R.id.options_menu_sort:
                 sort();
                 showClicked("Items sorted");
@@ -123,10 +126,10 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         menu.setOnMenuItemClickListener(this);
     }
 
-    private void randomize(){
+    private void randomize() {
         Random random = new Random();
         _adapter.clear();
-        for (int i = 0; i < ITEMS_COUNT; i++){
+        for (int i = 0; i < ITEMS_COUNT; i++) {
             ModelBase model = random.nextBoolean()
                     ? new PopupModel(random.nextInt(RANDOM_BOUND))
                     : new ActionModeCallbackModel(random.nextInt(RANDOM_BOUND));
@@ -135,7 +138,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         }
     }
 
-    private void sort(){
+    private void sort() {
         _adapter.sort(new Comparator<ModelBase>() {
             @Override
             public int compare(ModelBase left, ModelBase right) {
