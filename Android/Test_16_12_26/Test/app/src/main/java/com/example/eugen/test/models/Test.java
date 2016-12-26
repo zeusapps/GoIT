@@ -12,6 +12,10 @@ public class Test {
         _testItems = new ArrayList<>();
     }
 
+    public String getName() {
+        return _name;
+    }
+
     public ArrayList<TestItem> getTestItems() {
         return _testItems;
     }
