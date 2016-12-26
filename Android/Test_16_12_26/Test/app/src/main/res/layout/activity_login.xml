@@ -11,11 +11,18 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.eugen.test.activities.LoginActivity">
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="admin:admin; user:user"
+        android:id="@+id/textView"/>
+
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/login_loginTextView"
-        android:hint="@string/login_login"/>
+        android:hint="@string/login_login"
+        android:layout_below="@+id/textView"/>
 
     <EditText
         android:layout_width="match_parent"
