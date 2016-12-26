@@ -45,11 +45,11 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     @Override
     public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
         ModelBase item = _adapter.getItem(position);
-        if (item instanceof PopupModel){
+        if (item instanceof PopupModel) {
             showPopup(view);
         }
 
-        if (item instanceof ActionModeCallbackModel){
+        if (item instanceof ActionModeCallbackModel) {
             showActionMode();
         }
     }
@@ -58,17 +58,13 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         startActionMode(this);
     }
 
-    private void showPopup(View view){
+    private void showPopup(View view) {
         PopupMenu menu = new PopupMenu(this, view);
         menu.inflate(R.menu.popup_menu);
         menu.show();
 
         menu.setOnMenuItemClickListener(this);
     }
-
-
-
-
 
     @Override
     public boolean onCreateActionMode(ActionMode mode, Menu menu) {
@@ -98,7 +94,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         return true;
     }
 
-    private void showClicked(String title){
+    private void showClicked(String title) {
         Toast.makeText(this, title, Toast.LENGTH_SHORT).show();
     }
 }
