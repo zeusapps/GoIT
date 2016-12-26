@@ -42,10 +42,15 @@ public class MainActivity extends BaseAuthActivity implements AdapterView.OnItem
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        if (_application.getAuthService().getAuthRole() == AuthRole.ADMIN){
-            getMenuInflater().inflate(R.menu.main_admin_menu, menu);
-            return true;
+        switch(_application.getAuthService().getAuthRole()){
+            case ADMIN:
+                getMenuInflater().inflate(R.menu.main_admin_menu, menu);
+                return true;
+            case USER:
+                getMenuInflater().inflate(R.menu.main_user_menu, menu);
+                return true;
         }
+
         return false;
     }
 
