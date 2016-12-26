@@ -5,4 +5,6 @@
     <string name="login_loginButton">Login</string>
     <string name="test_adapter_questions_count">"questions: "</string>
     <string name="main_admin_menu_createNew">Create new test</string>
+    <string name="create_test_test_name">Test name</string>
+    <string name="create_test_create_button">Create test</string>
 </resources>

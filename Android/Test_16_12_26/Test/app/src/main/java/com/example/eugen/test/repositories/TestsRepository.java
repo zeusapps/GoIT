@@ -15,4 +15,8 @@ public class TestsRepository {
     public ArrayList<Test> getTests() {
         return _tests;
     }
+
+    public void addTest(Test test){
+        _tests.add(test);
+    }
 }
