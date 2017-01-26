@@ -60,7 +60,7 @@ public class ArticlesFragment extends Fragment implements AdapterView.OnItemClic
             _listener = (OnFragmentInteractionListener) context;
         } else {
             throw new RuntimeException(context.toString()
-                    + " must implement OnFragmentInteractionListener");
+                    + " must implement OnLoginListener");
         }
     }
 
